@@ -1,0 +1,29 @@
+HTML: hypertext markup language
+
+markup language:
+anotating a document in a syntactically distinguishable way
+e.g. <Name>Michael So</Name>
+<Name></Name> , Michael So
+ref: https://en.wikipedia.org/wiki/Markup_language
+
+anotate:
+provide infomation about the information
+i.e. adding metadata to the data
+e.g. "Michael So" -> <Name>Michael So</Name>
+ref: https://en.wikipedia.org/wiki/Annotation
+
+hypertext:
+document with hyperlink
+ref: https://en.wikipedia.org/wiki/Hypertext
+
+hyperlink:
+reference to another document reachable by click
+ref: https://en.wikipedia.org/wiki/Hyperlink
+
+document:
+represtation of human thought (ideas)
+written, drawn, presented, or memorialized
+ref: https://en.wikipedia.org/wiki/Document
+
+Primary usage of HTML is to provide additional infomation about the information presented.
+
