@@ -1,6 +1,8 @@
 
 # Implement and Manipulate Document Structures and Objects
-  
+
+## Create the document structure by using HTML
+
   HTML is for providing a structure to a document.  
   A document contains text, reference to other document, image, video; HTML uses tags to mark each piece of content in the document for describing  what it is about. This marking process provides a structure to the document.
   Without this special processing or "mark up", the computer will not understand the content inside document very well.
@@ -11,9 +13,7 @@
   CSS and JS are essential for building experience rich and interactive website aka web app.
   
   note: Most content here refers to [MDN: Mozilla Developer Network] and [HTML5 For Web Designers]
-
-## Create the document structure by using HTML
-
+  
 ### Structure the UI by using semantic markup
 
 HTML5 provides a long list of tags for markup, each tag has its semantic meaning, including markup for search engines and screen readers,  
