@@ -10,6 +10,8 @@
   A structure enables styling the document using external style sheet (CSS) by selecting the target element to be styled; and manipulate the content in the document using programming language (JS) via object mode representation which HTML can provide.
   CSS and JS are essential for building experience rich and interactive website aka web app.
   
+  note: Most content here refers to [MDN: Mozilla Developer Network] and [HTML5 For Web Designers]
+
 ## Create the document structure by using HTML
 
 ### Structure the UI by using semantic markup
@@ -17,11 +19,21 @@
 HTML5 provides a long list of tags for markup, each tag has its semantic meaning, including markup for search engines and screen readers,  
 such as Section, Article, Nav, Header, Footer, and Aside  
 
-#### Anatomy of an HTML element
+#### Building block of HTML: HTML element
+
+Two very descriptive pictures about HTML element:  
+
 ![MDN: Anatomy of an HTML element
 Section](https://mdn.mozillademos.org/files/9347/grumpy-cat-small.png)
-reference: [MDN: Getting started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#Anatomy_of_an_HTML_element)
+picture source: [MDN: Getting started with HTML]
 
+![MDN: Anatomy of an HTML element
+Section](https://mdn.mozillademos.org/files/9345/grumpy-cat-attribute-small.png)
+picture source: [MDN: Getting started with HTML]
+
+[MDN: Getting started with HTML]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#Anatomy_of_an_HTML_element
+
+There are many HTML tags for different purposes with their respective attributes which contains metadata of the HTML element that can be used to adjust the elements' behaviour
 
 #### Core structure of a HTML page
 
@@ -45,41 +57,169 @@ reference: [MDN: Getting started with HTML](https://developer.mozilla.org/en-US/
 
 `<head> ... </head>` contains metadata of the page, or support documents such as link to CSS and JS, etc. This area does not contain any content to be displayed
 
-Inside the `<head>` area, most HTML page contains these three popular HTML elements:
+Inside the `<head>` area, most HTML page contains these four popular HTML elements:
+
 - `<meta charset="UTF-8">`  
 for specifying encoding
 - `<script src="file.js"></script>`  
 for loading JS
-- `<link rel="stylesheet" href="file.css">` 
+- `<link rel="stylesheet" href="file.css">`
 for loading CSS  
+- `<title>page title</title>`  
+contains the page title
 
 `<body> ... </body>` contains content to be displayed.
 
 #### Content sectioning
 
-[`<header>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header) represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
+These elements break the content into logical pieces, and build an broad outline for the document content.  
 
-[`<footer>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents.
+[`<header>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header) represents introductory content, typically:  
+a group of **introductory or navigational aids**;  
+It may contain some heading elements but also  
 
-An `<article>` element represents a whole and complete composition or entry. Examples of an `<article>` element could be a magazine article or a blog post, where the content can be redistributed independently and not lose its meaning. Each article is wholly contained within itself. You can have an article with subarticles; however, each subarticle must be a direct extension and related to the root article.
-example for the `<article>` element:
+- a logo,  
+- a search form,  
+- an author name,  
+- and other elements.
 
-Forum post
-Blog post
-News story
-Comment
+note:  
 
-`<section>`
+- Can be used multiple times in a page  e.g. inside each `<article>`  or `<section>`
+- Only use it when it is nesting two or more other elements  
 
+  Good:
 
-- create a layout container in HTML
+  ```html
+  <header>
+    <h2>The Planet Earth</h2>
+    <p>Posted on Wednesday, <time datetime="2017-10-04">4 October 2017</time> by Jane Smith</p>
+  </header>
+  ```
+
+  Bad: just don't use it
+
+  ```html
+  <header>
+    <h2>The Planet Earth</h2>
+  </header>
+  ```
+
+[`<footer>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) represents a footer for its **nearest sectioning content or sectioning root element**.  
+A footer typically contains information about:  
+
+- the author of the section,  
+- copyright data or  
+- links to related documents.
+
+note: Can be used multiple times in a page.  
+
+[`nav`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav) represents a section of a page whose purpose is to provide navigation links, either:  
+
+- within the current document  
+- or to other documents.  
+
+Common examples of navigation sections are:  
+
+- menus,  
+- tables of contents, and  
+- indexes.
+
+[`<article>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) represents a **self-contained** complete in a document, page, application, or site, which is intended to be **independently distributable** or reusable, and not lose its meaning. It usually has a header or nested two more more other **related** HTML elements.
+
+Examples of an `<article>` element could be:  
+
+- a magazine or newspaper article  
+- a blog post  
+- a forum post  
+- widgets: e.g. stock tickers, calculators, clocks, weather widgets, and the like
+
+Note: You can have an article with subarticles; however, each subarticle must be a direct extension and related to the root article.
+
+[`<section>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section#Example) represents a standalone section. It is used for grouping **related content** together. It usually has a header or nested two more more other **related** HTML elements.
+
+Note:  
+
+- each `<section>` creates a new header hierarchy i.e. start from `<h1>` rather than inherited whatever before it
+- Only use `<section>` if no other tag is approperiate i.e. `<section>` is low priority choice
+- Do not use the `<section>` element as a generic container; this is what `<div>` is for, especially when the sectioning is only for styling purposes. A rule of thumb is that a section should logically appear in the outline of a document.
+
+[`aside`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside) represent a portion of a document whose content is seperated from or only indirectly related to the main content. i.e. could be removed without reducing the meaning of the main content of the document or section. Nice to have but can be removed.  
+Example:
+
+- Pullquotes
+- call-out boxes
+- Ad
+
+[`<main>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main) represents the dominant content of the `<body>` of a document.  
+Content in `<main>` should be unique across the set of documents or website; Repeating elements such as sidebars, navigation links, copyright information, site logos, and search forms shouldn't be included.
+It has no effect on the document outline, however, it is useful for accessibility. Assistive technology can by pass the other content on the page such as navigation menu, and jump right into the main content.
+This is also useful for browser's reader mode.
+
+#### Search engine
+
+`<article>` and `<section>` are used by the search engine algorithm as these elements are known to contain the main body of the page.  
+
+Within each `<article>`, the engine look for elements such as `<hgroup>` or `<h1>` to get the main topic of the `<article>` element for relevant indexing.
+With proper sementic tags, the quality of search engines indexing improve and let the site more searchable by end users.
+
+How to optimise search engine result, aka SEO, in flavor of your site is an important technique to use when designing websites. After all, the content published are meant to be found by the target audience.
+
+Here are some ways to add metadata so the search engine can understand the website better (SEO):
+
+- Microformats  
+- schema.org  
+- metadata in `<head>`: provide search enginer result page preview  
+
+  ```html
+  <meta name="description" content="The MDN Web Docs site 
+    provides information about Open Web technologies 
+    including HTML, CSS, and APIs for both Web sites and 
+    progressive web apps.">
+  ```
+
+  [MDN: Head metadata](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Adding_an_author_and_description)
+
+#### Social network
+
+Add some metadata in `<head>` to provide preview and richer content experience  
+
+Facebook:
+
+```html
+<meta property="og:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.dc4e08e2f6af.png">
+<meta property="og:description" content="The Mozilla Developer Network (MDN) provides
+information about Open Web technologies including HTML, CSS, and APIs for both Web sites
+and HTML5 Apps. It also documents Mozilla products, like Firefox OS.">
+<meta property="og:title" content="Mozilla Developer Network">
+```
+
+Twitter:
+
+```html
+<meta name="twitter:title" content="Mozilla Developer Network">
+```
+
+[MDN: Other types of metadata](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Other_types_of_metadata)
+
+#### Screen Reader
+
+`<section>` can do page sectioning and help building an outline of the page. It used to be relying on headers, e.g. `<h1>` to `<h6>`, however, just used headers can not indicate sections and subsection as clearly.
+
+### create a layout container in HTML
   
+  [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) aka The HTML Content Division element, is the generic container for flow content. It has no sementic value and has no effect on the content or layout until styled using CSS.  
+  `<article>` or `<section>` or `<nav>` or other tags with sementic should be used before using `<div>`
   
+  [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) represents tabular data i.e. information presented in a two-dimensional table comprised of rows and columns of cells containing data.  
+  It provides a more static layout and has to work witm many other table related HTML tags to create the table elements
   
 ## Write code that interacts with UI controls
 
 - Programmatically add and modify HTML elements  
 - Implement media controls
+
+
 - implement HTML5 canvas and SVG graphics
   
   - HTML5 canvas:  
@@ -321,7 +461,6 @@ try...catch...finally statement (JavaScript)
   - use the input value match() method  
    return: an Array containing the entire matched string as the first element, and info related
 
-
   ```javascript
   var str = 'For more information, see Chapter 3.4.5.1';
   var re = /see (chapter \d+(\.\d)*)/i;
@@ -505,8 +644,17 @@ CSS
 
 # Reference
 
-MDN: Mozilla Developer Network  
-Microsoft Exam 70-480 Prep book  
-HTML5 for Web Designer  
+- [MDN: Mozilla Developer Network]  
+
+[MDN: Mozilla Developer Network]: https://developer.mozilla.org/  
+
+- [HTML5 For Web Designers]
+
+[HTML5 For Web Designers]: https://html5forwebdesigners.com/
+
+- [Exam Ref 70-480: Programming in HTML5 with JavaScript and CSS3]
+
+[Exam Ref 70-480: Programming in HTML5 with JavaScript and CSS3]: https://www.microsoftpressstore.com/store/exam-ref-70-480-programming-in-html5-with-javascript-9780735676633
+
 HTML CSS the missing manual  
 HTML5 reference book  
