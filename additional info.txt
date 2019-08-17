@@ -27,3 +27,24 @@ ref: https://en.wikipedia.org/wiki/Document
 
 Primary usage of HTML is to provide additional infomation about the information presented.
 
+
+
+Web site or app?
+
+site: publish info, generalized, document based
+
+app: specialize, is software designed to perform a group of coordinated functions, tasks, or activities for the benefit of the user. 
+https://en.wikipedia.org/wiki/Application_software
+
+e.g. 
+i make an app, 
+deliver using the internet, 
+directly usable in browser
+i call it a web app
+
+i write some text, with image, video, etc
+put the related info in organized docs
+and publish them via internet, 
+with unique link to reach the site
+directly viewable in browser
+i call it a web site
